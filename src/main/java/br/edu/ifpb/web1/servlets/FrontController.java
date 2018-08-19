@@ -15,11 +15,9 @@ import java.io.IOException;
 @MultipartConfig
 public class FrontController extends HttpServlet {
     public void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String action = request.getParameter("action");
-
         request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
 
+        String action = request.getParameter("action");
         try {
             Command command = (Command)
                     Class.forName("br.edu.ifpb.web1.command.impl." + action).newInstance();
